@@ -14,7 +14,7 @@ class _SavingsPlansViewState extends State<SavingsPlansView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Planes de ahorro'),
-        leading: Icon(Icons.account_balance_wallet),
+        leading: Icon(Icons.savings),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -37,10 +37,7 @@ class _SavingsPlansViewState extends State<SavingsPlansView> {
             ),
             SizedBox(height: 16),
             _buildTable('Auto Nuevo', 6),
-            _buildTable('Auto Nuevo', 6),
-            _buildTable('Auto Nuevo', 6),
-            _buildTable('Auto Nuevo', 6),
-            _buildTable('Auto Nuevo', 6),
+
           ],
         ),
       ),

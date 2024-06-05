@@ -15,7 +15,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.05),
+        padding: EdgeInsets.all(16.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,29 +49,19 @@ class _LoginViewState extends State<LoginView> {
                   foregroundColor: MaterialStateProperty.all<Color>(
                       Colors.white),
                 ),
-                onPressed: (){
-                  setState(() {
-                  Navigator.pushNamed(context, MainView.id);
-                });
+                onPressed: (){                  
+                  Navigator.pushNamed(context, MainView.id);              
                 }, 
                 child: const Text('Iniciar Sesión')),
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(
-                          255, 176, 51, 51)), 
-                  foregroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white),
-                ),
-                onPressed: (){
-                  setState(() {
-                  Navigator.pushNamed(context, RegisterView.id);
-                });
-                }, 
-                child: const Text('register'))
+              TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterView.id);
+              },
+              child: const Text('Aún no tienes una cuenta?, Registrate!!'),
+            ),
             ],
           ) ,)),
       
