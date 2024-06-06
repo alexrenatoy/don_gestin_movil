@@ -37,21 +37,23 @@ class _MainViewState extends State<MainView> {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-            ),
+            ),          
             ListTile(
               leading: Icon(Icons.savings_outlined),
               title: Text('Savings'),
               onTap: () {
-                onTabTapped(0);
+                  onTabTapped(0);
               },
             ),
+            Divider(height: 10,),
             ListTile(
               leading: Icon(Icons.navigation_outlined),
-              title: Text('Controles'),
+              title: Text('Controls'),
               onTap: () {
                 onTabTapped(1);
               },
             ),
+            Divider(height: 10,),
             ListTile(
               leading: Icon(Icons.home_outlined),
               title: Text('Home'),
@@ -59,6 +61,7 @@ class _MainViewState extends State<MainView> {
                 onTabTapped(2);
               },
             ),
+            Divider(height: 10,),
             ListTile(
               leading: Icon(Icons.credit_card_sharp),
               title: Text('Cards'),
@@ -66,6 +69,7 @@ class _MainViewState extends State<MainView> {
                 onTabTapped(3);
               },
             ),
+            Divider(height: 10,),
             ListTile(
               leading: Icon(Icons.calendar_month_outlined),
               title: Text('Reminder'),
