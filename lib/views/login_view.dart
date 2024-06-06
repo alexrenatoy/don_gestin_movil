@@ -49,8 +49,10 @@ class _LoginViewState extends State<LoginView> {
                   foregroundColor: MaterialStateProperty.all<Color>(
                       Colors.white),
                 ),
-                onPressed: (){                  
+                onPressed: (){         
+                  setState(() {                    
                   Navigator.pushNamed(context, MainView.id);              
+                  });         
                 }, 
                 child: const Text('Iniciar Sesión')),
               const SizedBox(

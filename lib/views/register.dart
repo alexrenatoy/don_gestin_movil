@@ -43,7 +43,9 @@ class _RegisterViewState extends State<RegisterView> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
+                  setState(() {                                        
                   Navigator.pushNamed(context, MainView.id);
+                  });
                 },
                 child: const Text('Register'),
               ),
