@@ -4,289 +4,213 @@ class HomeView extends StatefulWidget {
   static String id = 'home_view';
   const HomeView({super.key});
 
-
   @override
   State<HomeView> createState() => _HomeViewState();
-  
 }
 
 class _HomeViewState extends State<HomeView> {
   @override
-   Widget build(BuildContext context) {
-    return Scaffold(     
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            // Welcome Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Bienvenido de nuevo, TU',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              'El reporte de todas tus estadisticas esta al dia',
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(height: 16),
-
-            // Comparisons Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Comparaciones',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+          children: [
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey[400],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Bienvenido de nuevo, Alex',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            'El resporte de tus estadisticas están al día',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  // Line Chart goes here (replace with your chart implementation)
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Container(
                     height: 200,
-                    child: Center(child: Text('Line Chart')),
-                  ),
-                ],
-              ),
-            ),
-
-            // Income, Expenses, Savings Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                children: <Widget>[
-                  // Income and Expenses Section
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Ingresos',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[400],
+                    ),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Comparaciones',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
-                            SizedBox(height: 8),
-                            // Income data goes here (replace with your chart implementation)
-                            Container(
-                              height: 100,
-                              child: Center(child: Text('Income Chart')),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Gastos',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            // Expenses data goes here (replace with your chart implementation)
-                            Container(
-                              height: 100,
-                              child: Center(child: Text('Expenses Chart')),
-                            ),
-                          ],
+                        SizedBox(height: 10,),
+                        Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text('Estadisticas'),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-
-                  // Savings Section
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Ahorros',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      // Pie Chart goes here (replace with your chart implementation)
-                      Container(
-                        height: 150,
-                        child: Center(child: Text('Pie Chart')),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Total \$2280',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      // Legend goes here (replace with your legend implementation)
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.circle, size: 10, color: Colors.grey),
-                                SizedBox(width: 4),
-                                Text('Carro nuevo'),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.circle, size: 10, color: Colors.grey),
-                                SizedBox(width: 4),
-                                Text('Maestría'),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.circle, size: 10, color: Colors.black),
-                                SizedBox(width: 4),
-                                Text('Hipoteca'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
-            // Wallet Transactions Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Trasacciones billetera',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                        
+                      ],
                     ),
                   ),
-                  SizedBox(height: 16),
-                  // Transaction Data Table goes here (replace with your table implementation)
-                  DataTable(
-                    columns: [
-                      DataColumn(label: Text('Hipoteca')),
-                      DataColumn(label: Text('Cantidad')),
-                      DataColumn(label: Text('Total')),
-                    ],
-                    rows: [
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Trasanccion d...')),
-                          DataCell(Text('50')),
-                          DataCell(Text('1470')),
-                        ],
-                      ),
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Trasanccion d...')),
-                          DataCell(Text('80')),
-                          DataCell(Text('1520')),
-                        ],
-                      ),
-                    ],
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Trasacciones billetera',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        // Replace this with your actual table widgets
+                        Container(
+                          height: 150,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text('Table Placeholder'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Trasacciones tarjetas',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        // Replace this with your actual table widgets
+                        Container(
+                          height: 150,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text('Table Placeholder'),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-
-            // Card Transactions Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Trasacciones tarjetas',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Ahorros',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        // Replace this with your actual pie chart widget
+                        Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text('grafica de pastel Placeholder'),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 16),
-                  // Transaction Data Table goes here (replace with your table implementation)
-                  DataTable(
-                    columns: [
-                      DataColumn(label: Text('Juguetes')),
-                      DataColumn(label: Text('Cantidad')),
-                      DataColumn(label: Text('Total')),
-                    ],
-                    rows: [
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Juguetes por...')),
-                          DataCell(Text('100')),
-                          DataCell(Text('900')),
-                        ],
-                      ),
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Cena Navideña')),
-                          DataCell(Text('100')),
-                          DataCell(Text('2600')),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
-            // Reminders Section
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Recordatorios',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Recordatorios',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        // Replace this with your actual list widget
+                        Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text('List Placeholder'),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(height: 16),
-                  // Reminder Data Table goes here (replace with your table implementation)
-                  DataTable(
-                    columns: [
-                      DataColumn(label: Text('')),
-                      DataColumn(label: Text('Fecha')),
-                    ],
-                    rows: [
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Pagar plan')),
-                          DataCell(Text('2023-12-27')),
-                        ],
-                      ),
-                      DataRow(
-                        cells: [
-                          DataCell(Text('Pagar el agua')),
-                          DataCell(Text('2023-12-20')),
-                        ],
-                      ),
-                    ],
                   ),
                 ],
               ),

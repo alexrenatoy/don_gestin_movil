@@ -10,39 +10,34 @@ class CardsView extends StatefulWidget {
 
 class _CardsViewState extends State<CardsView> {
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> data = [
+      {
+        "type": "Débito",
+        "bank": "Pichincha",
+        "date": "12/05/2024",
+        "value": "155.00",
+        "total": "300.00",
+      },
+      {
+        "type": "Débito",
+        "bank": "Pichincha",
+        "date": "12/05/2024",
+        "value": "155.00",
+        "total": "300.00",
+      },
+      {
+        "type": "Débito",
+        "bank": "Pichincha",
+        "date": "12/05/2024",
+        "value": "155.00",
+        "total": "300.00",
+      },
+    ];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tus Tarjetas'),
-        leading: Icon(Icons.credit_card_sharp),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Tarjetas disponibles y detalles',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[200],
-                    ),
-                    // child: Image.asset('assets/mastercard.png'),
-                  ),
-                ],
-              ),
-            ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -53,7 +48,43 @@ class _CardsViewState extends State<CardsView> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey[700],
+                        color: Colors.grey[400],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Tus tarjetas',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            'Tarjetas disponibles y detalles',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey[400],
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +96,10 @@ class _CardsViewState extends State<CardsView> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 10),
+                          Divider(
+                            height: 10,
+                            color: Colors.white,
+                          ),
                           Text(
                             'Banco: Pichincha',
                             style: TextStyle(fontSize: 14),
@@ -95,7 +129,7 @@ class _CardsViewState extends State<CardsView> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey[600],
+                        color: Colors.grey[400],
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +141,10 @@ class _CardsViewState extends State<CardsView> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 10),
+                          Divider(
+                            height: 10,
+                            color: Colors.white,
+                          ),
                           Text(
                             'Banco: Pichincha',
                             style: TextStyle(fontSize: 14),
@@ -134,7 +171,39 @@ class _CardsViewState extends State<CardsView> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          label: Text('Agregar movimiento'),
+                          icon: Icon(Icons.add_card),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            backgroundColor: Colors.grey[700],
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -144,74 +213,96 @@ class _CardsViewState extends State<CardsView> {
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey[700],
+                        color: Colors.grey[400],
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Movimiento de las Tarjetas',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Movimiento de las Tarjetas',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                          SizedBox(height: 20),
-                          DataTable(
-                            columns: [
-                              DataColumn(label: Text('Tipo')),
-                              DataColumn(label: Text('Banco')),
-                              DataColumn(label: Text('Fecha')),
-                              DataColumn(label: Text('')),
-                              DataColumn(label: Text('Total')),
-                            ],
-                            rows: [
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('Crédito')),
-                                  DataCell(Text('Pichincha')),
-                                  DataCell(Text('01/02/2023')),
-                                  DataCell(Text('\$1000.00', style: TextStyle(color: Colors.red))),
-                                  DataCell(Text('\$1000.00')),
-                                ],
-                              ),
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('Debito')),
-                                  DataCell(Text('Pichincha')),
-                                  DataCell(Text('01/02/2023')),
-                                  DataCell(Text('\$800.00', style: TextStyle(color: Colors.green))),
-                                  DataCell(Text('\$1000.00')),
-                                ],
-                              ),
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('Crédito')),
-                                  DataCell(Text('Pichincha')),
-                                  DataCell(Text('01/02/2023')),
-                                  DataCell(Text('\$800.00', style: TextStyle(color: Colors.green))),
-                                  DataCell(Text('\$1000.00')),
-                                ],
-                              ),
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('Debito')),
-                                  DataCell(Text('Pichincha')),
-                                  DataCell(Text('01/02/2023')),
-                                  DataCell(Text('\$800.00', style: TextStyle(color: Colors.green))),
-                                  DataCell(Text('\$1000.00')),
-                                ],
-                              ),
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('')),
-                                  DataCell(Text('')),
-                                  DataCell(Text('')),
-                                  DataCell(Text('\$800.00', style: TextStyle(color: Colors.green))),
-                                  DataCell(Text('\$1000.00')),
-                                ],
-                              ),
-                            ],
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: DataTable(
+                              headingRowHeight: 38.0,
+                              dataRowMinHeight: 36.0,
+                              dataRowMaxHeight: 36.0,
+                              columns: const [
+                                DataColumn(
+                                    label: Text(
+                                  'Tipo',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Banco',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Fecha',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Cantidad',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Total',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                              ],
+                              rows: data.map((data) {
+                                return DataRow(
+                                  cells: [
+                                    DataCell(Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(data['type']),
+                                    )),
+                                    DataCell(Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(data['bank']),
+                                    )),
+                                    DataCell(Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(data['date'].toString()),
+                                    )),
+                                    DataCell(Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(data['value'].toString()),
+                                    )),
+                                    DataCell(Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(data['total']),
+                                    )),
+                                  ],
+                                );
+                              }).toList(),
+                            ),
                           ),
                         ],
                       ),
@@ -220,14 +311,14 @@ class _CardsViewState extends State<CardsView> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 15),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: Icon(Icons.edit),r
+      // ),
     );
   }
 }

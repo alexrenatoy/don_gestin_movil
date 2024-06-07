@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Don Gestin C:',
-      theme: ThemeData.dark(),
+      // theme: ThemeData.dark(),
       initialRoute: LandPageView.id,
       routes: CustomRoutes.routes,
     );
