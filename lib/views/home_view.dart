@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -24,8 +24,8 @@ class _HomeViewState extends State<HomeView> {
                     child: Container(
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey[400],
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 175, 181, 193),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'El resporte de tus estadisticas están al día',
+                            'Todos tus reportes estadisticos están al día',
                             style: TextStyle(
                               fontSize: 14,
                             ),
@@ -51,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 0),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -62,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[400],
+                      color: Color.fromARGB(255, 175, 181, 193),
                     ),
                     child: Column(
                       children: [
@@ -77,7 +77,9 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Container(
                           height: 100,
                           decoration: BoxDecoration(
@@ -88,13 +90,108 @@ class _HomeViewState extends State<HomeView> {
                             child: Text('Estadisticas'),
                           ),
                         ),
-                        
                       ],
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(height: 0,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(6),
+                          height: 200,
+                          decoration: BoxDecoration(
+                            // border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                            color: Color.fromARGB(255, 175, 181, 193),
+                          ),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Transacciones Billetera',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text('Tabla'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 11, height: 0,),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(6),
+                          height: 200,
+                          decoration: BoxDecoration(
+                            // border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                            color: Color.fromARGB(255, 175, 181, 193),
+                          ),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Transacciones Tarjetas',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text('Tabla'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),     
+            SizedBox(height: 0,),      
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -103,110 +200,84 @@ class _HomeViewState extends State<HomeView> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Trasacciones billetera',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        // Replace this with your actual table widgets
                         Container(
-                          height: 150,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text('Table Placeholder'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Trasacciones tarjetas',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        // Replace this with your actual table widgets
-                        Container(
-                          height: 150,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text('Table Placeholder'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Ahorros',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        // Replace this with your actual pie chart widget
-                        Container(
+                          padding: EdgeInsets.all(6),
                           height: 200,
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
+                            // border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(8),
+                            color: Color.fromARGB(255, 175, 181, 193),
                           ),
-                          child: Center(
-                            child: Text('grafica de pastel Placeholder'),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Ahorros',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text('Pastel'),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: 11, height: 0,),                
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Recordatorios',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        // Replace this with your actual list widget
                         Container(
+                          padding: EdgeInsets.all(6),
                           height: 200,
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
+                            // border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(8),
+                            color: Color.fromARGB(255, 175, 181, 193),
                           ),
-                          child: Center(
-                            child: Text('List Placeholder'),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Recordatorios',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text('Tabla'),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

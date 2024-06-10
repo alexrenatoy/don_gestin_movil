@@ -38,7 +38,7 @@ class _CardsViewState extends State<CardsView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -81,7 +81,7 @@ class _CardsViewState extends State<CardsView> {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[400],
@@ -92,7 +92,7 @@ class _CardsViewState extends State<CardsView> {
                           Text(
                             'Tarjeta de Crédito',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -102,31 +102,31 @@ class _CardsViewState extends State<CardsView> {
                           ),
                           Text(
                             'Banco: Pichincha',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Saldo Disponible: \$20.00,09',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Fecha de Corte: 01-12-2023',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Fecha de Vencimiento: 15-12-2023',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(width: 20),
+                  SizedBox(width: 15),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[400],
@@ -137,7 +137,7 @@ class _CardsViewState extends State<CardsView> {
                           Text(
                             'Tarjeta de Crédito',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -147,22 +147,22 @@ class _CardsViewState extends State<CardsView> {
                           ),
                           Text(
                             'Banco: Pichincha',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Saldo Disponible: \$20.00,09',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Fecha de Corte: 01-12-2023',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                           SizedBox(height: 5),
                           Text(
                             'Fecha de Vencimiento: 15-12-2023',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                         ],
                       ),
@@ -171,7 +171,7 @@ class _CardsViewState extends State<CardsView> {
                 ],
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -186,7 +186,7 @@ class _CardsViewState extends State<CardsView> {
                           icon: Icon(Icons.add_card),
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 15),
+                                horizontal: 20, vertical: 5),
                             backgroundColor: Colors.grey[700],
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -202,7 +202,7 @@ class _CardsViewState extends State<CardsView> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 5,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -223,7 +223,7 @@ class _CardsViewState extends State<CardsView> {
                               'Movimiento de las Tarjetas',
                               textAlign: TextAlign.start,
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -231,6 +231,7 @@ class _CardsViewState extends State<CardsView> {
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: DataTable(
+                              columnSpacing: 10,  
                               headingRowHeight: 38.0,
                               dataRowMinHeight: 36.0,
                               dataRowMaxHeight: 36.0,
@@ -245,15 +246,7 @@ class _CardsViewState extends State<CardsView> {
                                 )),
                                 DataColumn(
                                     label: Text(
-                                  'Banco',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )),
-                                DataColumn(
-                                    label: Text(
-                                  'Fecha',
+                                  'Tarjeta',
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -281,16 +274,17 @@ class _CardsViewState extends State<CardsView> {
                                   cells: [
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
-                                      child: Text(data['type']),
+                                      child: Text(data['type'],),
                                     )),
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
                                       child: Text(data['bank']),
                                     )),
-                                    DataCell(Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(data['date'].toString()),
-                                    )),
+                                    // DataCell(Padding(
+                                    //   padding: const EdgeInsets.all(2.0),
+                                    //   child: Text(data['date'].toString(),
+                                    //   style: TextStyle(fontSize: 10),),                                      
+                                    // )),
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
                                       child: Text(data['value'].toString()),
