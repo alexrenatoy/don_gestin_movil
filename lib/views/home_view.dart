@@ -1,3 +1,4 @@
+import 'package:don_gestin_movil/views/landpage_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -22,26 +23,41 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.all(14),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Color.fromARGB(255, 175, 181, 193),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Bienvenido de nuevo, Alex',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Bienvenido, Alex',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'Todos tus reportes estadísticos están al día.',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            'Todos tus reportes estadisticos están al día',
-                            style: TextStyle(
-                              fontSize: 14,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context, LandPageView.id);
+                            },
+                            child: Icon(
+                              Icons.exit_to_app,
+                              color: Color.fromARGB(255, 171, 0, 0),
+                              size: 30,
                             ),
                           ),
                         ],
@@ -96,7 +112,9 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            SizedBox(height: 0,),
+            SizedBox(
+              height: 0,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -144,7 +162,10 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 11, height: 0,),
+                  SizedBox(
+                    width: 11,
+                    height: 0,
+                  ),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,8 +211,10 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ],
               ),
-            ),     
-            SizedBox(height: 0,),      
+            ),
+            SizedBox(
+              height: 0,
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -239,7 +262,10 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 11, height: 0,),                
+                  SizedBox(
+                    width: 11,
+                    height: 0,
+                  ),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

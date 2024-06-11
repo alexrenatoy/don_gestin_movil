@@ -36,25 +36,25 @@ class _MainViewState extends State<MainView> {
             icon: Icon(Icons.account_balance_wallet_outlined),
             activeIcon: Icon(Icons.account_balance_wallet),
             label: 'Wallet',
-            backgroundColor: Colors.green
+            backgroundColor: Colors.black
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.blue
+            backgroundColor: Colors.black87
           ),        
           BottomNavigationBarItem(
             icon: Icon(Icons.credit_card_sharp),
             activeIcon: Icon(Icons.credit_card_rounded),
             label: 'Cards',
-            backgroundColor: Colors.blue
+            backgroundColor: Colors.black
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month_outlined),
             activeIcon: Icon(Icons.calendar_month),
             label: 'Reminder',
-            backgroundColor: Colors.amber
+            backgroundColor: Colors.black
           ),
         ],
       ),

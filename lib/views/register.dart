@@ -93,7 +93,7 @@ class _RegisterViewState extends State<RegisterView> {
                 style: TextStyle(
                   fontSize: 12,
                   fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w200,
+                  fontWeight: FontWeight.w400,
                   color: Colors.black,
                 ),
               ),
@@ -147,6 +147,25 @@ class _RegisterViewState extends State<RegisterView> {
                           textAlign: TextAlign.center,
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.pressed)) {                            
+                            return const Color.fromARGB(255, 95, 95, 95);
+                          }                          
+                          return Colors.black;
+                        }),
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, LoginView.id);
+                      },
+                      child: const Text('Volver'),
                     ),
                   ],
                 ),

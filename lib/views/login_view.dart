@@ -32,20 +32,29 @@ class _LoginViewState extends State<LoginView> {
       // Si las credenciales son válidas, navegar a la pantalla principal
       if (isAuthenticated) {
         Navigator.pushNamed(context, MainView.id);
+        
       } else {
         // Si las credenciales no son válidas, mostrar un mensaje de error al usuario
         showDialog(
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('!Algo salió mal'),
-              content: Text('Usuario y contraseña incorrectos'),
+              // title: Text('!Algo salió mal'),
+              actionsAlignment: MainAxisAlignment.center,
+              icon: Icon(
+                Icons.error,
+                size: 55,
+              ),
+              content: Text('Usuario y contraseña incorrectos.'),
+
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('Cerrar'),
+                  child: Text(
+                    'Volver a intentarlo.',
+                  ),
                 ),
               ],
             );
@@ -105,8 +114,13 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color.fromARGB(255, 176, 51, 51)),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.pressed)) {
+                        return const Color.fromARGB(255, 95, 95, 95);
+                      }
+                      return Colors.black;
+                    }),
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
                   ),
@@ -116,11 +130,21 @@ class _LoginViewState extends State<LoginView> {
                 const SizedBox(
                   height: 20,
                 ),
+                Text('¿Aún no tienes una cuenta?',
+                    style: TextStyle(color: Colors.black)),
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, RegisterView.id);
                   },
-                  child: const Text('Aún no tienes una cuenta?, Registrate!!'),
+                  child: const Text(
+                    'Registrate aquí!!',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               ],
             ),

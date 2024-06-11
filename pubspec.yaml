@@ -10,6 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^7.0.2
+  flutter_svg: ^1.0.0
+  gifx: ^1.0.0
+
+assets:
+    - assets/animations/your_gif.gif
 
 dev_dependencies:
   flutter_test:

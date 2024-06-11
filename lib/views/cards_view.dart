@@ -1,3 +1,4 @@
+import 'package:don_gestin_movil/widgets/components/form';
 import 'package:flutter/material.dart';
 
 class CardsView extends StatefulWidget {
@@ -9,6 +10,44 @@ class CardsView extends StatefulWidget {
 }
 
 class _CardsViewState extends State<CardsView> {
+  // Función para agregar movimiento
+  // Future<void> _newMovement() async {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         // title: Text('!Algo salió mal'),
+  //         actionsAlignment: MainAxisAlignment.center,
+  //         icon: Icon(
+  //           Icons.error,
+  //           size: 55,
+  //         ),
+  //         content: Text('Nuevo movimiento'),
+
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () {
+  //               Navigator.of(context).pop(); // Cierra el diálogo
+  //               setState(() {}); // Vuelve a renderizar la página actual
+  //             },
+  //             child: Text(
+  //               'Agregar movimiento',
+  //             ),
+  //           ),
+  //           TextButton(
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //             child: Text(
+  //               'Cerrar',
+  //             ),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> data = [
@@ -81,7 +120,8 @@ class _CardsViewState extends State<CardsView> {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 13, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[400],
@@ -126,7 +166,8 @@ class _CardsViewState extends State<CardsView> {
                   SizedBox(width: 15),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 13, vertical: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[400],
@@ -181,7 +222,10 @@ class _CardsViewState extends State<CardsView> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ElevatedButton.icon(
-                          onPressed: () {},
+                          onPressed: () {
+                            showCustomFormPopup(
+                                context);
+                          },
                           label: Text('Agregar movimiento'),
                           icon: Icon(Icons.add_card),
                           style: ElevatedButton.styleFrom(
@@ -190,8 +234,7 @@ class _CardsViewState extends State<CardsView> {
                             backgroundColor: Colors.grey[700],
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                         ),
@@ -231,7 +274,7 @@ class _CardsViewState extends State<CardsView> {
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: DataTable(
-                              columnSpacing: 10,  
+                              columnSpacing: 10,
                               headingRowHeight: 38.0,
                               dataRowMinHeight: 36.0,
                               dataRowMaxHeight: 36.0,
@@ -274,7 +317,9 @@ class _CardsViewState extends State<CardsView> {
                                   cells: [
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
-                                      child: Text(data['type'],),
+                                      child: Text(
+                                        data['type'],
+                                      ),
                                     )),
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
@@ -283,7 +328,7 @@ class _CardsViewState extends State<CardsView> {
                                     // DataCell(Padding(
                                     //   padding: const EdgeInsets.all(2.0),
                                     //   child: Text(data['date'].toString(),
-                                    //   style: TextStyle(fontSize: 10),),                                      
+                                    //   style: TextStyle(fontSize: 10),),
                                     // )),
                                     DataCell(Padding(
                                       padding: const EdgeInsets.all(2.0),
@@ -315,4 +360,39 @@ class _CardsViewState extends State<CardsView> {
       // ),
     );
   }
+}
+
+void showCustomFormPopup(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return CustomFormPopup(
+        titleText: 'Formulario de Registro',
+        formContent: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nombre',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Correo electrónico',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Contraseña',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
