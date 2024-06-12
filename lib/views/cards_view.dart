@@ -1,4 +1,4 @@
-import 'package:don_gestin_movil/widgets/components/form';
+import 'package:don_gestin_movil/widgets/components/custom_popup.dart';
 import 'package:flutter/material.dart';
 
 class CardsView extends StatefulWidget {
