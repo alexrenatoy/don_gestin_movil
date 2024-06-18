@@ -10,47 +10,7 @@ class CardsView extends StatefulWidget {
 }
 
 class _CardsViewState extends State<CardsView> {
-  // Función para agregar movimiento
-  // Future<void> _newMovement() async {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         // title: Text('!Algo salió mal'),
-  //         actionsAlignment: MainAxisAlignment.center,
-  //         icon: Icon(
-  //           Icons.error,
-  //           size: 55,
-  //         ),
-  //         content: Text('Nuevo movimiento'),
-
-  //         actions: [
-  //           TextButton(
-  //             onPressed: () {
-  //               Navigator.of(context).pop(); // Cierra el diálogo
-  //               setState(() {}); // Vuelve a renderizar la página actual
-  //             },
-  //             child: Text(
-  //               'Agregar movimiento',
-  //             ),
-  //           ),
-  //           TextButton(
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //             },
-  //             child: Text(
-  //               'Cerrar',
-  //             ),
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> data = [
+  final List<Map<String, dynamic>> data = [
       {
         "type": "Débito",
         "bank": "Pichincha",
@@ -73,6 +33,15 @@ class _CardsViewState extends State<CardsView> {
         "total": "300.00",
       },
     ];
+
+    final TextEditingController _typeController = TextEditingController();
+    final TextEditingController _bankController = TextEditingController();
+    final TextEditingController _dateController = TextEditingController();
+    final TextEditingController _valueController = TextEditingController();
+    final TextEditingController _totalController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {    
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -223,15 +192,17 @@ class _CardsViewState extends State<CardsView> {
                       children: [
                         ElevatedButton.icon(
                           onPressed: () {
-                            showCustomFormPopup(
-                                context);
+                            // Acción para abrir el modal de ahorro
+                            _showSavingsModal();
                           },
                           label: Text('Agregar movimiento'),
-                          icon: Icon(Icons.add_card),
+                          icon: Icon(Icons.attach_money),
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
-                            backgroundColor: Colors.grey[700],
+                              horizontal: 5,
+                              vertical: 0,
+                            ),
+                            backgroundColor: Colors.black,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -360,39 +331,68 @@ class _CardsViewState extends State<CardsView> {
       // ),
     );
   }
-}
 
-void showCustomFormPopup(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    builder: (BuildContext context) {
-      return CustomFormPopup(
-        titleText: 'Formulario de Registro',
-        formContent: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Nombre',
-                border: OutlineInputBorder(),
+  void _showSavingsModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Agregar Movimiento'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _typeController,
+                decoration: InputDecoration(labelText: 'Tipo'),
               ),
+              TextField(
+                controller: _bankController,
+                decoration: InputDecoration(labelText: 'Banco'),
+              ),
+              TextField(
+                controller: _dateController,
+                decoration: InputDecoration(labelText: 'Fecha'),
+              ),
+              TextField(
+                controller: _valueController,
+                decoration: InputDecoration(labelText: 'Valor'),
+              ),
+              TextField(
+                controller: _totalController,
+                decoration: InputDecoration(labelText: 'Total'),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancelar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Correo electrónico',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Contraseña',
-                border: OutlineInputBorder(),
-              ),
+            ElevatedButton(
+              child: Text('Guardar'),
+              onPressed: () {
+                setState(() {
+                  data.add({
+                    "type": _typeController.text,
+                    "bank": _bankController.text,
+                    "date": _dateController.text,
+                    "value": _valueController.text,
+                    "total": _totalController.text,
+                  });
+                });
+                _typeController.clear();
+                _bankController.clear();
+                _dateController.clear();
+                _valueController.clear();
+                _totalController.clear();
+                Navigator.of(context).pop();
+              },
             ),
           ],
-        ),
-      );
-    },
-  );
+        );
+      },
+    );
+  }
 }

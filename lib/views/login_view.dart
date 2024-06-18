@@ -32,7 +32,8 @@ class _LoginViewState extends State<LoginView> {
       // Si las credenciales son válidas, navegar a la pantalla principal
       if (isAuthenticated) {
         Navigator.pushNamed(context, MainView.id);
-        
+        _usernameController.clear();
+        _passwordController.clear();
       } else {
         // Si las credenciales no son válidas, mostrar un mensaje de error al usuario
         showDialog(

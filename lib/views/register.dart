@@ -163,7 +163,7 @@ class _RegisterViewState extends State<RegisterView> {
                             MaterialStateProperty.all<Color>(Colors.white),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, LoginView.id);
+                        Navigator.pushNamed(context, LoginView.id);                        
                       },
                       child: const Text('Volver'),
                     ),
